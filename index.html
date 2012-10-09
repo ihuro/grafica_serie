@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Graficador de series</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Graficador de Series">
+    <meta name="author" content="Cesar Roldan">
+
+    <!-- Le styles -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <style>
+      body {
+        padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+      }
+      #imagen {
+        margin-left: 110px; width: 600px;
+      }
+    </style>
+    <link href="css/bootstrap-responsive.min.css" rel="stylesheet">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <link rel="shortcut icon" href="ico/favicon.ico">
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="#">Graficador de Series</a>
+          <div class="nav-collapse">
+            <ul class="nav">
+              <li class="active"><a href="/">Graficar</a></li>
+              <li><a href="/about">Acerca de</a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+
+        <h1>Graficar</h1>
+
+        <form class="form-horizontal" action="" method="POST">
+            <fieldset>
+                <div class="control-group">
+                    <label class="control-label" for="serie">Ingrese la serie</label>
+                    <div class="controls">
+                        <div class="input-append">
+                        <input type="text" class="span4" id="serie" name="serie" />
+                        <p class="help-block">La serie deben ser n&uacute;meros separados por coma, por ejemplo: 1,2,3,4 </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" for="xlabel">Label para Eje X/Y</label>
+                    <div class="controls">
+                        <div class="input-append">
+                        <input type="text" class="span2" id="xlabel" name="xlabel" />
+                        </div>
+                        <div class="input-append">
+                        <input type="text" class="span2" id="ylabel" name="ylabel" />
+                        </div>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" for="power">Potencia/Tiempo</label>
+                    <div class="controls">
+                        <div class="input-append">
+                        <input type="text" class="span2" id="power" name="power" />
+                        </div>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" for="titulo">T&iacute;tulo del gr&aacute;fico</label>
+                    <div class="controls">
+                        <div class="input-append">
+                        <input type="text" class="span2" id="titulo" name="titulo" />
+                        </div>
+                    </div>
+                </div>
+                <button class="btn btn-promary" id="btnVer" value="Ver">Ver</button>
+            </fieldset>
+        </form>
+
+      <div id="imagen"></div>
+
+    </div> <!-- /container -->
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script>
+        function graficar() {
+            $.post('/graficar/', $('form').serialize(), function(data) {
+                $("#imagen").html("<img src='data:image/png;base64," + data + "' />");
+            });
+        }
+        $(document).ready(function() {
+            $.ajaxSetup({cache: false});
+            $("#btnVer").click(function(){
+                graficar();
+            });
+            $("form").submit(function(){
+                graficar();
+                return false;
+            });
+        });
+    </script>
+
+  </body>
+</html>
