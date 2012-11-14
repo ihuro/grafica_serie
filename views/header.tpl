@@ -8,16 +8,15 @@
     <meta name="author" content="Cesar Roldan">
 
     <!-- Le styles -->
-    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="media/css/bootstrap.css" rel="stylesheet">
     <style>
       body {
         padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
       }
-      #imagen {
-        margin-left: 110px; width: 600px;
-      }
+      % setdefault('extra_css', '')
+      {{extra_css}}
     </style>
-    <link href="css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="media/css/bootstrap-responsive.css" rel="stylesheet">
 
     <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
@@ -29,6 +28,14 @@
 
   <body>
 
+    % setdefault('about', False)
+    %if about:
+    <a href="https://github.com/ihuro/grafica_serie">
+      <img style="position: absolute; top: 40px; right: 0; border: 0;"
+           src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"
+           alt="Fork me on GitHub">
+    </a>
+    %end
     <div class="navbar navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
@@ -40,24 +47,18 @@
           <a class="brand" href="#">Graficador de Series</a>
           <div class="nav-collapse">
             <ul class="nav">
-              <li><a href="/">Graficar</a></li>
-              <li class="active"><a href="/about">Acerca de</a></li>
+              <li \\
+              %if not about:
+                  class="active"\\
+              %end
+              ><a href="/">Graficar</a></li>
+              <li \\
+              %if about:
+                  class="active"\\
+              %end
+              ><a href="/about">Acerca de</a></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
       </div>
     </div>
-
-    <div class="container">
-
-        <h1>Acerca de</h1>
-
-        <p>Mini aplicacion para graficar series - UCSE - DAR - 2012</p>
-
-    </div> <!-- /container -->
-
-    <script src="js/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-
-  </body>
-</html>
