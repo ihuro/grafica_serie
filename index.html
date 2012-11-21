@@ -37,7 +37,7 @@ para acceso a disco en la cátedra Sistemas Operativos II en UCSE DAR</p>
 parámetros, realiza el gráfico de la serie.</p>
 
 <p>Está inicialmente pensada para graficar los accesos a disco según una lista de bloques, donde el orden de
-la lista depende de un algoritmo de acceso específico.</p>
+la lista depende de un algoritmo de acceso especáfico.</p>
 
 <p>El parámetro de tiempo/potencia es para graficar los valores de tiempo utilizados en lugar de los bloques
 (tiempo de desplazamiento * nro de bloques).</p>
@@ -49,25 +49,6 @@ la lista depende de un algoritmo de acceso específico.</p>
 <pre><code>git clone git://github.com/ihuro/grafica_serie.git
 </code></pre>
 
-<h2>Dependencias</h2>
-
-<h2>Con virtualenv</h2>
-
-<p>Para instalarlo en un virtualenv, es necesario tener algunas dependencias para la compilación de matplotlib.
-Estas dependencias son libpng y libfreetype (ver <a href="http://matplotlib.org/users/installing.html#build-requirements">http://matplotlib.org/users/installing.html#build-requirements</a>)</p>
-
-<p>En Debian/Ubuntu, se puede hacer mediante <code>apt-get</code></p>
-
-<pre><code>apt-get install libpng12-dev libfreetype6-dev libfreetype6
-</code></pre>
-
-<h2>Sin virtualenv</h2>
-
-<p>Se debe instalar matplotlib en el sistema. En Debian/Ubuntu se puede hacer mediante <code>apt-get</code></p>
-
-<pre><code>apt-get install python-matplotlib
-</code></pre>
-
 <h2>Instalar dependencias</h2>
 
 <p>Con o sin virtualenv, se pueden instalar las dependencias mediante <code>pip</code></p>
@@ -77,6 +58,23 @@ Estas dependencias son libpng y libfreetype (ver <a href="http://matplotlib.org/
 
 <p>Si no se dispone de <code>pip</code>, se pueden instalar las dependencias mediante <code>easy_install</code> o manualmente.
 Para eso, ver el contenido de <code>requirements.txt</code> e instalar esos paquetes.</p>
+
+<h2>MatPlotLib - Con virtualenv</h2>
+
+<p>Para instalarlo en un virtualenv, es necesario tener algunas dependencias para la compilación de matplotlib.
+Estas dependencias son libpng y libfreetype (ver <a href="http://matplotlib.org/users/installing.html#build-requirements">http://matplotlib.org/users/installing.html#build-requirements</a>)</p>
+
+<p>En Debian/Ubuntu, se puede hacer mediante <code>apt-get</code></p>
+
+<pre><code>apt-get install libpng12-dev libfreetype6-dev libfreetype6
+</code></pre>
+
+<h2>MatPlotLib - Sin virtualenv</h2>
+
+<p>Se debe instalar matplotlib en el sistema. En Debian/Ubuntu se puede hacer mediante <code>apt-get</code></p>
+
+<pre><code>apt-get install python-matplotlib
+</code></pre>
 
 <h1>Ejecución</h1>
 
